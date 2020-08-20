@@ -71,6 +71,8 @@ payloads.level_2.push(() => {
     .from(selectAll('ul.navbar-nav > li'))
     .filter(element => element.innerText === 'NEWSLETTER')[0]
     .appendChild(style)
+
+  console.log('PAYLOAD: added :hover to `Newsletter`. It now has a cursor pointer!')
 })
 
 // LEVEL 3
