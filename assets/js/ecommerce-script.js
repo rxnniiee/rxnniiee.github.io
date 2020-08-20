@@ -79,21 +79,21 @@ payloads.level_2.push(() => {
 
 
 // manually trigger all payloads. just run execPayloads() in the console
-function execPayloads(level = 0) {
-  switch (level) {
-    case 1:
-      payloads.level_1.forEach(payload => payload())
-      break
-    case 2:
-      payloads.level_2.forEach(payload => payload())
-      break
-    case 3:
-      payloads.level_3.forEach(payload => payload())
-      break
-    default:
-      Object.keys(payloads).forEach(key => {
-        payloads[key].forEach(payload => payload())
-      })
-      break
+function execPayloads(level = undefined) {
+  const payloadLevel = Object.keys(payloads).find(keyname => keyname === `level_${level}`)
+
+  if (!level) {
+    // run all payloads if none specified
+    Object.keys(payloads).forEach(key => {
+      payloads[key].forEach(payload => payload())
+    })
   }
+
+  if (!payloadLevel) {
+    // run when we can't find level_x (x stands for number)
+    console.error(`Couldn't find payload level_${level}`)
+    return
+  }
+
+  payloads[payloadLevel].forEach(payload => payload())
 }
