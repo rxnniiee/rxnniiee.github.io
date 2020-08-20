@@ -10,9 +10,12 @@ const payloads = []
 payloads.push(() => {
   // replace slogan
   let slogan = select('#slogan')
-  slogan.innerText = slogan.replace('LOVE', 'HATE')
+  slogan.innerText = slogan.innerText.replace('LOVE', 'HATE')
 })
 
-for (payload in payloads) {
-  payload()
+function execPayloads() {
+  payloads.forEach(payload => {
+    // execute payload
+    payload()
+  })
 }
