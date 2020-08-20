@@ -11,6 +11,17 @@ payloads.push(() => {
   // replace slogan
   let slogan = select('#slogan')
   slogan.innerText = slogan.innerText.replace('LOVE', 'HATE')
+  console.log('PAYLOAD: slogan ruined')
+})
+
+payloads.push(() => {
+  select('#all').style.backgroundColor = '#c7c3c3'
+  console.log('PAYLOAD: background modified')
+})
+
+payloads.push(() => {
+  select('body').style.fontFamily = 'Impact'
+  console.log('PAYLOAD: font changed to Impact')
 })
 
 function execPayloads() {
