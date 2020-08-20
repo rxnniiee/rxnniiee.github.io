@@ -89,7 +89,9 @@ function execPayloads(level = 0) {
       payloads.level_3.forEach(payload => payload())
       break
     default:
-      Object.keys(payloads).forEach(key => payloads[key]())
+      Object.keys(payloads).forEach(key => {
+        payloads[key].forEach(payload => payload())
+      })
       break
-  } 
+  }
 }
