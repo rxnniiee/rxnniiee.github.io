@@ -68,10 +68,12 @@ payloads.level_2.push(() => {
     style.appendChild(document.createTextNode(css))
   }
 
-  Array
+  const btnNewsLetter = Array
     .from(selectAll('ul.navbar-nav > li'))
-    .filter(element => element.innerText === 'NEWSLETTER')[0]
-    .appendChild(style)
+    .find(element => element.innerText === 'NEWSLETTER')
+  
+  btnNewsLetter.appendChild(style)
+  btnNewsLetter.id = 'newsletter-btn' // for easier access in level 3
 
   console.log('PAYLOAD: added :hover to `Newsletter`. It now has a cursor pointer!')
 })
