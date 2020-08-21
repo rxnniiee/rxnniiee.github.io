@@ -1,4 +1,5 @@
-console.log("I'm in the mainframe!!!1")
+console.log('I\'m in the mainframe!!!1')
+console.info('Run exercise payloads by running execPayloads(<int: level>), if level is not defined all payloads will be executed')
 
 // define macro functions
 const select = (e) => document.querySelector(e)
